@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+	<div class = "msg">Notifications</div>
+<h2></h2>
+{% endblock %}
+{% block main_section %}
+
+<div class="product_panel">
+
+	{% for prod in notifications %}  
+		<div class="product_tile2">
+		<div class="product_item">
+			<table class = "prod">
+				<tr><td class="key">Product ID</td><td class="value">{{prod.0}}</td></tr>
+				<tr><td class="key">Product Name</td><td class="value">{{prod.1}}</td></tr>
+				<tr><td class="key">Store ID</td><td class="value">{{prod.2}}</td></tr>
+				<tr><td class="key">Product Quantity</td><td class="value">{{prod.3}}</td></tr>
+			</table>
+		</div>
+		</div>
+	{% endfor %}
+
+</div>
+	
+
+{% endblock %}

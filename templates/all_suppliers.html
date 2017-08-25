@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+
+	<div class = "msg">Suppliers</div>
+
+{% endblock %}
+{% block main_section %}
+
+<div class="product_panel">
+	
+	{% for prod in suppliers %}  
+		<div class="product_tile">
+		<div class="product_item">
+			<table class = "prod">
+				<tr><td class="key">Supplier ID</td><td class="value">{{prod.0}}</td></tr>
+				<tr><td class="key">Supplier Name</td><td class="value">{{prod.1}}</td></tr>
+				<tr><td class="key">Supplier Address</td><td class="value">{{prod.2}}</td></tr>
+				<tr><td class="key">Supplier Phone</td><td class="value">{{prod.4}}</td></tr>
+				<tr class="row_form">	
+				</tr>
+			</table>
+		</div>
+		</div>
+	{% endfor %}
+
+</div>
+{%endblock%}

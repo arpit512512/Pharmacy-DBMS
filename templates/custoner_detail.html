@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+	<div class = "msg">Fill Customer Details</div>
+
+{% endblock %}
+{% block main_section %}
+
+<div class="login_panel">
+    <form class="login_form" method ="post">{% csrf_token %}
+        <div class="field">
+	  <label>Customer Name</label>
+          <input type="text" placeholder="Name" name="CustomerName" class="input"/>
+        </div>
+	<br>
+        <div class="field">
+          <label>Customer Email</label>
+          <input type="email" placeholder=" abc@xyz.com" name="CustomerEmail"  class="input"/>
+        </div>
+	<br>
+        <div class="field">
+          <label>Current Date</label>
+          <input type="date" placeholder=" YYYY-MM-DD" pattern = "[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" name="Datecreated"  class="input"
+		  title="Date should be in correct format. e.g. 2016-09-09 "/>	
+
+        </div>
+	<br>
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="text" placeholder=" Phone Number" pattern="[789][0-9]{9}" name="Phone" class="input" 
+		title="Please enter valid phone number "/>
+        </div>
+	<br>
+        <div class="login_footer">
+          <input type="submit" value="Proceed To Cart">
+        </div>
+     </form>
+  </div>
+<center><div class="error_msg">
+	{% if messages %}
+
+	    {% for msg in messages %}
+	    <div class="msg">{{ msg }}</div>
+	    {% endfor %}
+
+	{% endif %}
+  </div></center>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+	<div class = "msg">Demand Bill</div>
+{% endblock %}
+{% block main_section %}
+<div class="product_panel">
+	<div class="bill_panel2">
+
+			<table class = "prod">
+				<tr>
+					<th  class="key">Item ID</th>
+					<th  class="key">Product Name</th>
+					<th  class="key">Quantity Added</th>
+				</tr>
+				{% for prod in products %}  
+				<tr>
+					<td class="value">{{prod.0}}</td>
+					<td class="value">{{prod.1}}</td>
+					<td class="value">{{prod.2}}</td>
+				</tr>
+				{% endfor %}
+
+			<table>
+
+			<table class = "prod">
+				<tr><td class="key">Demand ID</td><td class="value">{{order.0}}</td></tr>
+				<tr><td class="key">Date Created</td><td class="value">{{order.1}}</td></tr>
+				<tr><td class="key">Supplier Name</td><td class="value">{{order.5}}</td></tr>
+				<tr><td class="key">Store ID</td><td class="value">{{order.4}}</td></tr>
+				<tr><td class="key">Emp ID</td><td class="value">{{order.3}}</td></tr>
+			</table>
+
+	</div>
+	
+
+</div>
+
+
+
+{% endblock %}
+

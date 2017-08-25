@@ -1,0 +1,19 @@
+{% extends 'base2.html' %}
+{% block head_title %} 
+	<div class = "msg">Home</div>
+{% endblock %}
+
+{% block main_section %}
+<div class="welcome">
+<center>Welcome &nbsp{{username}}</center>
+</div>
+<center><div class="menu_panel">
+			{% if is_Root %}  
+			
+			{% else %} 
+				<div class = "tab"><a href="/medical/profile-update/">Update Profile</a></div>
+			{% endif %}
+			<div class = "tab"><a href="/medical/product-add/">Add Product</a></div>
+			<div class = "tab"><a href="/medical/all-suppliers/">Suppliers</a></div>
+</div></center>
+{% endblock %}

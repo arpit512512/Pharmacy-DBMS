@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+
+	<div class = "msg">Cart</div>
+{% endblock %}
+{% block main_section %}
+<div class="product_panel">
+
+	{% for prod in products %}  
+		<div class="product_tile">
+		<div class="product_item">
+			<table class = "prod">
+				<tr><td class="key">Product Name</td><td class="value">{{prod.0}}</td></tr>
+				<tr><td class="key">Product Quantity</td><td class="value">{{prod.1}}</td></tr>
+			</table>
+		</div>
+		</div>
+	{% endfor %}
+
+</div>
+
+		
+	<form action = "/medical/demand-buy/" method="post" id="buy-cart" class="shop-form">{% csrf_token %}
+	    
+	    <div class="order_checkout">
+		<input type="submit" class="btn btn-primary btn-lg pull-right" name="buy_cart" value="Place Demand Order" >
+
+	    </div>
+	</form>	
+
+{% endblock %}
+
+

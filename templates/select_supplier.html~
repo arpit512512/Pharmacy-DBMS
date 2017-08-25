@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+	<div class = "msg">Select Supplier</div>
+{% endblock %}
+{% block main_section %}
+
+	  <div class="login_panel">
+	    <form class="login_form" method ="post">{% csrf_token %}
+		<div class="field">
+		  <label>Select Supplier</label>
+		  <select name = "supplier">
+			{% for p in suppliers %}
+			<option> {{p}} </option>
+			{% endfor %}
+		   </select>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Time Limit(Days)</label>
+		  <input type = "number" name="time_limit">
+		</div>
+		<br>
+		<div class="login_footer">
+		  <input type="submit" class="btn btn-primary btn-lg pull-right" name="supplier_select" value="Proceed">
+		</div>
+	     </form>
+	  </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+	<div class = "msg">Demand Supply</div>
+{% endblock %}
+{% block main_section %}
+<center><div class="error_msg">
+	{% if messages %}
+
+	    {% for msg in messages %}
+	    <div class="msg">{{ msg }}</div>
+	    {% endfor %}
+
+	{% endif %}
+  	</div>
+</center><br>
+<div class = "cart_panel">
+	<label>Cart:&nbsp&nbsp {{cart_total}}</label>
+</div>
+<div class="product_panel">
+
+	{% for prod in products %}  
+		<div class="product_tile">
+		<div class="product_item">
+			<table class = "prod">
+				<tr><td class="key">Product Name</td><td class="value">{{prod.1}}</td></tr>
+				<tr><td class="key">Product Desc</td><td class="value">{{prod.2}}</td></tr>
+				<tr><td class="key">Product Chemicals</td><td class="value">{{prod.3}}</td></tr>
+				<tr><td class="key">Product Price</td><td class="value">{{prod.5}}</td></tr>
+				<tr><td class="key">Product Expiry</td><td class="value">{{prod.6}}</td></tr>
+				<tr class="row_form">	
+				</tr>
+			</table>
+<form  action = "/medical/demand-supply/{{prod.0}}" name="{{prod.0}}" method="post" id = "update-cart" 						class="add_cart_form">{% csrf_token %}
+					<label 		  class="key">Amount&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label>
+					<input type="number"  name = "qty" value = "{{prod.9}}">
+					<input type="submit"  name = "add_prod" value = "ADD TO CART">
+					</form>
+		</div>
+		</div>
+	{% endfor %}
+
+</div>
+		
+<form action = "/medical/demand-checkout/" method="get" id="add-customer" class="shop-form">{% csrf_token %}
+    
+    <div class="order_checkout">
+	<input type="submit" class="btn btn-primary btn-lg pull-right" name="add_cart" value ="Demand-Checkout">
+    </div>
+<br><br><br>
+</form>	
+{%endblock%}

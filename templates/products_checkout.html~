@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+	<div class = "msg">Cart</div>
+{% endblock %}
+{% block main_section %}
+<div class="product_panel">
+
+	{% for prod in products %}  
+		<div class="product_tile">
+		<div class="product_item">
+			<table class = "prod">
+				<tr><td class="key">Product Name</td><td class="value">{{prod.1}}</td></tr>
+				<tr><td class="key">Product Desc</td><td class="value">{{prod.2}}</td></tr>
+				<tr><td class="key">Product Chemicals</td><td class="value">{{prod.3}}</td></tr>
+				<tr><td class="key">Product Price</td><td class="value">{{prod.5}}</td></tr>
+				<tr><td class="key">Product Expiry</td><td class="value">{{prod.6}}</td></tr>
+				<tr><td class="key">Quantity Added</td><td class="value">{{prod.11}}</td></tr>
+				<tr><td class="key">TotaL Cost</td><td class="value">{{prod.12}}</td></tr>
+			</table>
+		</div>
+		</div>
+	{% endfor %}
+
+</div>
+	<div class = "sumtotal">
+		<label>Sum Total:&nbsp&nbsp {{sumtotal}}</label>
+	</div>
+		
+	<form action = "/medical/products-buy/" method="post" id="buy-cart" class="shop-form">{% csrf_token %}
+	    
+	    <div class="order_checkout">
+		<input type="submit" class="btn btn-primary btn-lg pull-right" name="buy_cart" value="Buy" >
+
+	    </div>
+	</form>	
+
+{% endblock %}
+
+

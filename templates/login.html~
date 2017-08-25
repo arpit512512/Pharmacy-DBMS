@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+	 <link rel="stylesheet" href="{% static "css/base.css" %}" /> <!-- CSS -->
+</head>
+<body>
+<div class = "head_title">
+	<div class = "msg">WELCOME TO PHARMACY MANAGEMENT SYSTEM</div>
+</div>
+<div class="container">
+  <div class="login_panel">
+    <form class="login_form" method ="post">{% csrf_token %}
+	<center><div class="field">
+	  <h2><label>Login</label></h2>
+
+        </div></center>
+        <div class="field">
+	  <label>Username</label>
+          <input placeholder="Username" type="text" name="user" id="fieldUser" class="input"/>
+        </div>
+	<br>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="pass" id="fieldPassword" class="input"/>
+        </div>
+	<br>
+        <div class="login_footer">
+          <button class="btn">Login</button>
+        </div>
+     </form>
+  </div>
+  <center><div class="error_msg">
+	{% if messages %}
+
+	    {% for msg in messages %}
+	    <div class="msg">{{ msg }}</div>
+	    {% endfor %}
+
+	{% endif %}
+  </div></center>
+</div>
+
+</body>
+</html>

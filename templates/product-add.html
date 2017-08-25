@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+	<div class = "msg">Add Product</div>
+
+{% endblock %}
+{% block main_section %}
+	<div class="login_panel">
+	    <form class="login_form" method ="post">{% csrf_token %}
+		<div class="field">
+		  <label>Name</label>
+		  <input type="text"  placeholder=" Name" name="productName" id="fieldUser" class="input"/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Description</label>
+		  <input type="text"  placeholder=" Description" name="productDescription" id="fieldPassword" class="input"/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>ChemicalAmnt</label>
+		  <input type="text" placeholder=" Chemical Amount"name="ProductChemicalAmount" id="fieldPassword" class="input"/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Cost Price</label>
+		  <input type="number" placeholder=" Rs"name="ProductCostPrice" id="fieldPassword" class="input"/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Selling Price</label>
+		  <input type="number" placeholder=" Rs"name="ProductSellingPrice" id="fieldPassword" class="input"/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Expiry Date</label>
+		<input type="date"  placeholder=" YYYY-MM-DD" pattern = "[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" name="ProductExpiryDate"  class="input"
+		  title="Date should be in correct format. e.g. 2016-09-09 "/>	
+		</div>
+		<br>
+		<div class="field">
+		  <label>Buy Date</label>
+		<input type="date"  placeholder=" YYYY-MM-DD"  pattern = "[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" name="ProductDateBuy"  class="input"
+		  title="Date should be in correct format. e.g. 2016-09-09 "/>	
+		</div>
+		<br>
+		<div class="field">
+		  <label>Is Taxable</label>
+		  <input type="text" placeholder=" Is Taxable"name="IsTaxable" id="fieldPassword" class="input"/>
+		</div>
+		<br>	
+		<div class="login_footer">
+		  <button class="btn">Submit</button>
+		</div>
+	     </form>
+  </div>
+	<center><div class = "product-add-msg">
+	<p>{{msg}}</p>
+	</div></center>
+
+{% endblock %}
+
+
+

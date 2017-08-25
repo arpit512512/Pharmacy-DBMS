@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block head_title %} 
+	<div class = "msg">Update Profile</div>
+
+{% endblock %}
+{% block main_section %}
+	<div class="login_panel">
+	    <form class="login_form" method ="post">{% csrf_token %}
+		<div class="field">
+		  <label>Name</label>
+		  <input type="text"  placeholder=" Name" name="EmployeeName" id="fieldUser" class="input"/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Address</label>
+		  <input type="text"  placeholder=" Address"name="EmployeeAddress" id="fieldPassword" class="input"/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Email</label>
+		  <input type="email" placeholder=" abc@xyz.com" name="EmployeeEmail" id="fieldPassword" class="input"/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Phone</label>
+		  <input type="text" placeholder=" Phone" pattern="[789][0-9]{9}" name="EmployeePhone" id="fieldPassword" class="input"
+			title="Please enter valid phone number "/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Sex</label>
+		  <input type="text" placeholder=" M|F" name="EmployeeSex" pattern="(M|F)"  id="fieldPassword" class="input" title="Enter M or F "/>
+		</div>
+		<br>
+		<br>
+		<div class="field">
+		  <label>Start Date</label>
+		  <input type="date"  placeholder=" YYYY-MM-DD"name="EmployeeStartDate" id="fieldPassword" class="input" pattern = "[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" title="Date should be in correct format. e.g. 2016-09-09 "/>
+		</div>
+		<br>
+		<div class="field">
+		  <label>Store ID</label>
+			<select name = "EmployeeStoreID" class="input">
+				{% for p in stores %}
+				<option> {{p}} </option>
+				{% endfor %}
+		   	</select>
+		</div>
+		<br>	
+		<div class="login_footer">
+		  <button class="btn">Update Profile</button>
+		</div>
+	     </form>
+  </div>
+	<div class = "employee-add-msg"><br>
+		<h2>{{msg}}</h2>
+		{% if Emp_ID %}
+			<h2>Note your Employee ID: {{Emp_ID}}</h2>
+		{% endif %}
+	</div>
+
+
+{% endblock %}
+
+
+		  
+

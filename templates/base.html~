@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+	 <link rel="stylesheet" href="{% static "css/base.css" %}" /> <!-- CSS -->
+</head>
+<body>
+	<header>
+		<div class = "banner">
+			
+			
+			<div class = "tab"><a href="/medical/home/">Home</a></div>
+							
+			{% if is_Root %}  
+				<div class = "tab"><a href = '/medical/employee-add/'> Add Employee</a></div>
+			{% else %}
+				<div class = "tab"><a href='/medical/products/0'>Products</a></div>
+				<div class = "tab"><a href = '/medical/select-supplier/'>Demand Supply</a></div>
+				<div class = "tab"><a href = '/notifications/'>Notifications</a></div>
+				
+	
+			{% endif %}
+			<div class = "tab_logout"><a href='/logout/'>logout</a></div>
+		</div>
+		<div class="head_title">
+		{% block head_title %}
+		
+		{% endblock %}
+		</div>
+	</header>
+	{% block main_section %}
+	{% endblock %}
+	<div class = "sumtotal">
+		<center><div class = "tab"><a href="/medical/home/">Back To Home</a></div></center>
+	</div>
+	<div class = "banner2">
+			
+		{% if is_Root %}  
+	
+		{% else %}
+			<div class = "tab2">Store Id: {{store_det.0}}</div>
+			<div class = "tab2">Store Address: {{store_det.1}}</div>
+			<div class = "tab2">Store Phone: {{store_det.3}}</div>
+		{% endif %}
+	</div>
+</body>
+</html>
