@@ -1,5 +1,5 @@
 # Pharmacy-DBMS
-Pharmacy Management System Application to purchase items and place order for supply for different stores.
+Website to purchase items and place order for supply from different stores online. Website was made on Django platform and MySql database. Features like automatic notification of product shortage and demand order placement are incorporated.
 <br />
 
 ## User: 
